@@ -12,8 +12,6 @@ public class Membresia {
     @Column
     private double precio;
     @Column
-    private boolean activa;
-    @Column
     private String tipo;
 
     public int getId_Membresia() {
@@ -32,13 +30,6 @@ public class Membresia {
         this.precio = precio;
     }
 
-    public boolean isActiva() {
-        return activa;
-    }
-
-    public void setActiva(boolean activa) {
-        this.activa = activa;
-    }
 
     public String getTipo() {
         return tipo;

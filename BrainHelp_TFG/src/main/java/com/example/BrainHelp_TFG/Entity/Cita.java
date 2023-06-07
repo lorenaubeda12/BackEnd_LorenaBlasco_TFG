@@ -17,8 +17,6 @@ public class Cita {
     private Date fecha;
     @Column
     private String lugar;
-    @Column
-    private Boolean activo;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_Usuario", referencedColumnName = "id_Usuario")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -78,13 +76,6 @@ public class Cita {
         this.lugar = lugar;
     }
 
-    public Boolean getActivo() {
-        return activo;
-    }
-
-    public void setActivo(Boolean activo) {
-        this.activo = activo;
-    }
 
     public Usuario getId_Usuario() {
         return id_Usuario;

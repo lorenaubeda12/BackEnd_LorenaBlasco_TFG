@@ -20,8 +20,7 @@ public class Usuario {
     private String apellidosUsuario;
     @Column
     private String email;
-    @Column
-    private boolean Activo;
+
     @Column
     @JsonFormat(pattern="yyyy-MM-dd", timezone="Europe/Madrid")
     private Date fechaNacimiento;
@@ -33,8 +32,7 @@ public class Usuario {
     @JoinColumn(name = "id_Nivel", referencedColumnName = "id_Nivel")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Nivel id_Nivel;
-    @Column
-    private String userName;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_Membresia", referencedColumnName = "id_Membresia")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -72,13 +70,7 @@ public class Usuario {
         this.email = email;
     }
 
-    public boolean isActivo() {
-        return Activo;
-    }
 
-    public void setActivo(boolean activo) {
-        Activo = activo;
-    }
 
     public Date getFechaNacimiento() {
         return fechaNacimiento;
@@ -112,13 +104,7 @@ public class Usuario {
         this.id_Nivel = id_Nivel;
     }
 
-    public String getUserName() {
-        return userName;
-    }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
 
     public Membresia getId_Membresia() {
         return id_Membresia;
