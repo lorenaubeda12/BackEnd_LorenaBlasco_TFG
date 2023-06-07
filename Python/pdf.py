@@ -38,7 +38,7 @@ def generar_pdf():
         if not registros:
             return 'No se encontraron registros en la solicitud.', 400
 
-        correo = registros.get('correo')
+        correo = registros.get('email')
         if not correo:
             return 'No se proporcionó una dirección de correo.', 400
 
@@ -95,11 +95,11 @@ def generar_pdf():
         smtp_server = 'smtp.office365.com'
         smtp_port = 587
         username = 'brainhelp@outlook.es'  # Reemplaza con tu dirección de correo electrónico de Brain Help
-        password = 'zxocfrqcavzothjz'  # Reemplaza con tu contraseña de Brain Help
+        password = 'wnmtkdlvzmnyigbl'  # Reemplaza con tu contraseña de Brain Help
 
         context = ssl.create_default_context()
         with smtplib.SMTP(smtp_server, smtp_port) as server:
-            server.starttls(context=context)
+            server.starttls()
             server.login(username, password)
             server.sendmail(username, correo, message.as_string())
 
@@ -109,6 +109,7 @@ def generar_pdf():
         return 'PDF generado y enviado por correo correctamente.'
     except Exception as e:
         return f'Error al generar el PDF: {str(e)}', 500
+    
 
 if __name__ == '__main__':
-    app.run(host='192.168.1.50', port=8000)
+    app.run(host='0.0.0.0', port=8000)
